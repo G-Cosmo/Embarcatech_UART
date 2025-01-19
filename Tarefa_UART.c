@@ -68,7 +68,7 @@ int main() {
     scanf("%1024s", buffer);
 
     while (true) {
-        printf("\n>>> ");
+        printf("\n>>>> ");
         scanf("%1024s", buffer);
         printf("\nOPÇÃO: %s\n\n", buffer);
         
