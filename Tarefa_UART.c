@@ -46,9 +46,16 @@ void pico_rgb_turn_on(const uint *rgb_pin)
 
 void acionar_buzzer() //função que aciona o buzzer
 {
-    gpio_put(buzzer_pin, true);
-    sleep_ms(2000); //tempo que o buzzer ficará ativo
-    gpio_put(buzzer_pin, false);
+    const int frequencia = 100; 
+    const int duracao = 2000; 
+    const int delay = 1000 / (2 * frequencia); 
+
+    for (int i = 0; i < (duracao * frequencia) / 1000; i++) {
+        gpio_put(buzzer_pin, true);
+        sleep_ms(delay);
+        gpio_put(buzzer_pin, false);
+        sleep_ms(delay);
+    }
     printf("Buzzer desativado!\n");
 }
 
