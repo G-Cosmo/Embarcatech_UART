@@ -36,6 +36,14 @@ void pico_rgb_control(const uint *rgb_pin, int size, int blink_index)
 
 }
 
+void pico_rgb_turn_on(const uint *rgb_pin)
+{
+    for(int i = 0; i < 3; i++)
+    {
+        gpio_put(rgb_pin[i], true);        //garante que todos serão desligados por padrão
+    }
+}
+
 void acionar_buzzer() //função que aciona o buzzer
 {
     gpio_put(buzzer_pin, true);
@@ -52,6 +60,7 @@ int main() {
     pico_rgb_init(rgb_led);
     gpio_init(buzzer_pin);
     gpio_set_dir(buzzer_pin, GPIO_OUT);
+    scanf("%1024s", buffer);
     
     while (true) {
         printf("\nOPÇÃO: ");
@@ -68,9 +77,7 @@ int main() {
             pico_rgb_control(rgb_led, sizeof(rgb_led), 2);
             printf("Led azul ativo!\n");
         }else if(!strcmp(buffer, "branco")){  // Combina as 3 cores para acender led com a luz branca
-            pico_rgb_control(rgb_led, sizeof(rgb_led), 0);
-            pico_rgb_control(rgb_led, sizeof(rgb_led), 1);
-            pico_rgb_control(rgb_led, sizeof(rgb_led), 2);
+            pico_rgb_turn_on(rgb_led);
             printf("Led branco ativo!\n");
         } else if(!strcmp(buffer, "buzzer")){
             acionar_buzzer();
