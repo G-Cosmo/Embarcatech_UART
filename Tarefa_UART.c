@@ -67,6 +67,11 @@ int main() {
         } else if(!strcmp(buffer, "azul")){
             pico_rgb_control(rgb_led, sizeof(rgb_led), 2);
             printf("Led azul ativo!\n");
+        }else if(!strcmp(buffer, "branco")){  // Combina as 3 cores para acender led com a luz branca
+            pico_rgb_control(rgb_led, sizeof(rgb_led), 0);
+            pico_rgb_control(rgb_led, sizeof(rgb_led), 1);
+            pico_rgb_control(rgb_led, sizeof(rgb_led), 2);
+            printf("Led branco ativo!\n");
         } else if(!strcmp(buffer, "buzzer")){
             acionar_buzzer();
             printf("Buzzer acionado!\n");
