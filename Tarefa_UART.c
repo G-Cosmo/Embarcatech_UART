@@ -8,8 +8,6 @@
 #define RGB_GREEN 11
 const uint buzzer_pin = 21; // GPIO do buzzer
 
-
-
 //função que inicializa os pinos de um led RGB
 void pico_rgb_init(const uint *rgb_pin)
 {   
@@ -68,11 +66,11 @@ int main() {
     gpio_init(buzzer_pin);
     gpio_set_dir(buzzer_pin, GPIO_OUT);
     scanf("%1024s", buffer);
-    
+
     while (true) {
-        printf("\nOPÇÃO: ");
+        printf("\n>>> ");
         scanf("%1024s", buffer);
-        printf("\nESCRITO: %s\n\n", buffer);
+        printf("\nOPÇÃO: %s\n\n", buffer);
         
         if (!strcmp(buffer, "verde")) {
             pico_rgb_control(rgb_led, sizeof(rgb_led), 1);
