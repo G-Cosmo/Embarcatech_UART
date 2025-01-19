@@ -42,6 +42,13 @@ void pico_rgb_turn_on(const uint *rgb_pin)
     }
 }
 
+void pico_rgb_turn_off(const uint *rgb_pin) 
+{
+    for (int i = 0; i < 3; i++) {
+        gpio_put(rgb_pin[i], false); // Desliga cada LED
+    }
+}
+
 void acionar_buzzer() //função que aciona o buzzer
 {
     const int frequencia = 100; 
@@ -87,6 +94,9 @@ int main() {
         } else if(!strcmp(buffer, "buzzer")){
             acionar_buzzer();
             printf("Buzzer acionado!\n");
+        } else if(!strcmp(buffer, "desliga")){
+            pico_rgb_turn_off(rgb_led);
+            printf("Todos os LEDs desligados!\n");
         } else if(!strcmp(buffer, "reset")){
             printf("Ativando modo bootsel...\n");
             sleep_ms(1000); // Espera 1 segundo antes de reiniciar no modo bootset
