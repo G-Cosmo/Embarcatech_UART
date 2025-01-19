@@ -50,9 +50,12 @@ int main() {
         if (!strcmp(buffer, "verde")) {
             pico_rgb_control(rgb_led, sizeof(rgb_led), 1);
             printf("Led verde ativo!\n");
+        } else if (!strcmp(buffer, "vermelho")) {
+            pico_rgb_control(rgb_led, sizeof(rgb_led), 0);
+            printf("Led vermelho ativo!\n");
         } else{
-           printf("Comando invalido!\n");
-        } 
+            printf("Comando invalido!\n");
+        }
     }
     return 0;
 }
