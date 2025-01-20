@@ -62,3 +62,7 @@ Após a instalação, o usuário vai iniciar o programa e, ao invés de digitar 
 vscode, vai digitar pelo putty, que funciona como um terminal para fazer a entrada dos dados.
 
 Os comandos continuam os mesmos de caso estivesse simulando pelo wokwi.
+
+# Vídeo de demonstração
+
+https://www.youtube.com/watch?v=WJI5zLImZqw
