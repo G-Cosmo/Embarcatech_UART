@@ -92,8 +92,8 @@ int main() {
             pico_rgb_turn_on(rgb_led);
             printf("Led branco ativo!\n");
         } else if(!strcmp(buffer, "buzzer")){
-            acionar_buzzer();
             printf("Buzzer acionado!\n");
+            acionar_buzzer();
         } else if(!strcmp(buffer, "desliga")){
             pico_rgb_turn_off(rgb_led);
             printf("Todos os LEDs desligados!\n");
